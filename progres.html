@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Progres LDR 💖</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:
+    radial-gradient(circle at top,#4d267f 0%,#1a1028 45%,#0f0917 100%);
+    color:white;
+    overflow-x:hidden;
+    padding:40px 20px;
+}
+
+/* stars */
+
+.stars{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+}
+
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    opacity:0.5;
+    animation:blink 3s infinite alternate;
+}
+
+@keyframes blink{
+    from{
+        opacity:0.2;
+        transform:scale(1);
+    }
+    to{
+        opacity:1;
+        transform:scale(1.8);
+    }
+}
+
+/* title */
+
+.title{
+    text-align:center;
+    margin-bottom:60px;
+    animation:fadeDown 1s ease;
+}
+
+.title h1{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+.title p{
+    opacity:0.7;
+}
+
+/* progress */
+
+.progress{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+}
+
+.line{
+    position:absolute;
+    left:50%;
+    top:0;
+    width:6px;
+    height:100%;
+    transform:translateX(-50%);
+    background:rgba(255,255,255,0.12);
+    border-radius:30px;
+}
+
+/* branch */
+
+.branch{
+    position:relative;
+    width:50%;
+    padding:20px;
+    animation:fadeUp 0.8s ease;
+}
+
+.branch.left{
+    left:0;
+    text-align:right;
+}
+
+.branch.right{
+    left:50%;
+}
+
+.branch::before{
+    content:'';
+    position:absolute;
+    top:40px;
+    width:35px;
+    height:4px;
+    background:rgba(255,255,255,0.15);
+}
+
+.branch.left::before{
+    right:-18px;
+}
+
+.branch.right::before{
+    left:-18px;
+}
+
+/* glass card */
+
+.card{
+    position:relative;
+    padding:18px;
+    border-radius:26px;
+
+    background:rgba(255,255,255,0.08);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+
+    overflow:hidden;
+
+    transition:0.35s;
+}
+
+/* glass shine */
+
+.card::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(
+    120deg,
+    rgba(255,255,255,0.12),
+    transparent 40%
+    );
+    pointer-events:none;
+}
+
+.card:hover{
+    transform:translateY(-5px) scale(1.02);
+}
+
+/* glow status */
+
+.done{
+    box-shadow:
+    0 0 20px rgba(80,255,120,0.20),
+    0 0 45px rgba(80,255,120,0.10);
+}
+
+.notyet{
+    box-shadow:
+    0 0 20px rgba(255,70,70,0.20),
+    0 0 45px rgba(255,70,70,0.10);
+}
+
+.half{
+    box-shadow:
+    -8px 0 22px rgba(80,255,120,0.18),
+    8px 0 22px rgba(255,70,70,0.18);
+}
+
+/* text */
+
+.card h3{
+    font-size:18px;
+    margin-bottom:10px;
+}
+
+.emoji{
+    font-size:24px;
+}
+
+.status{
+    margin-top:10px;
+    opacity:0.7;
+    font-size:13px;
+}
+
+/* legend */
+
+.legend{
+    max-width:850px;
+    margin:70px auto 0;
+    padding:25px;
+    border-radius:25px;
+
+    background:rgba(255,255,255,0.07);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,0.12);
+}
+
+.legend h2{
+    margin-bottom:15px;
+}
+
+.legend p{
+    margin:10px 0;
+    opacity:0.8;
+}
+
+/* footer */
+
+.footer{
+    text-align:center;
+    margin-top:40px;
+    opacity:0.6;
+    font-size:14px;
+}
+
+/* animations */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+@keyframes fadeDown{
+    from{
+        opacity:0;
+        transform:translateY(-30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* mobile */
+
+@media(max-width:700px){
+
+.line{
+    left:18px;
+}
+
+.branch{
+    width:100%;
+    left:0 !important;
+    text-align:left !important;
+    padding-left:55px;
+}
+
+.branch::before{
+    left:8px !important;
+    width:28px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- stars -->
+
+<div class="stars">
+<div class="star" style="top:10%;left:20%;"></div>
+<div class="star" style="top:20%;left:80%;"></div>
+<div class="star" style="top:35%;left:50%;"></div>
+<div class="star" style="top:55%;left:15%;"></div>
+<div class="star" style="top:70%;left:75%;"></div>
+<div class="star" style="top:88%;left:40%;"></div>
+</div>
+
+<!-- title -->
+
+<div class="title">
+<h1>💖 Progres LDR 💖</h1>
+<p>from strangers to comfort person ✨</p>
+</div>
+
+<!-- progress -->
+
+<div class="progress">
+
+<div class="line"></div>
+
+<!-- 1 -->
+<div class="branch left">
+<div class="card done">
+<h3>1. tau akun tt dia</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">udah</div>
+</div>
+</div>
+
+<!-- 2 -->
+<div class="branch right">
+<div class="card done">
+<h3>2. tau akun ig dia</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">udah</div>
+</div>
+</div>
+
+<!-- 3 -->
+<div class="branch left">
+<div class="card done">
+<h3>3. dapet no hp dia</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">udah</div>
+</div>
+</div>
+
+<!-- 4 -->
+<div class="branch right">
+<div class="card done">
+<h3>4. chatan</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">udah</div>
+</div>
+</div>
+
+<!-- 5 -->
+<div class="branch left">
+<div class="card half">
+<h3>5. kota/kabupaten dia</h3>
+<div class="emoji">🫳</div>
+<div class="status">belum sepenuhnya</div>
+</div>
+</div>
+
+<!-- 6 -->
+<div class="branch right">
+<div class="card done">
+<h3>6. dapet foto dia</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">udah</div>
+</div>
+</div>
+
+<!-- 7 -->
+<div class="branch left">
+<div class="card done">
+<h3>7. saling suka</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">udah</div>
+</div>
+</div>
+
+<!-- 8 -->
+<div class="branch right">
+<div class="card done">
+<h3>8. panggil sayang</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">udah</div>
+</div>
+</div>
+
+<!-- 9 -->
+<div class="branch left">
+<div class="card done">
+<h3>9. dapet vn dia</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">udah</div>
+</div>
+</div>
+
+<!-- 10 -->
+<div class="branch right">
+<div class="card done">
+<h3>10. pacaran</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">udah</div>
+</div>
+</div>
+
+<!-- 11 -->
+<div class="branch left">
+<div class="card done">
+<h3>11. call</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">udah</div>
+</div>
+</div>
+
+<!-- 12 -->
+<div class="branch right">
+<div class="card done">
+<h3>12. vc</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">udah</div>
+</div>
+</div>
+
+<!-- 13 -->
+<div class="branch left">
+<div class="card half">
+<h3>13. pegang akun dia</h3>
+<div class="emoji">🌱</div>
+<div class="status">belum sepenuhnya</div>
+</div>
+</div>
+
+<!-- 14 -->
+<div class="branch right">
+<div class="card half">
+<h3>14. liat rambut dia</h3>
+<div class="emoji">🌱</div>
+<div class="status">belum sepenuhnya</div>
+</div>
+</div>
+
+<!-- 15 -->
+<div class="branch left">
+<div class="card notyet">
+<h3>15. gak asing sampe 1thn</h3>
+<div class="emoji">🌱</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 16 -->
+<div class="branch right">
+<div class="card notyet">
+<h3>16. vc gak pake kerudung</h3>
+<div class="emoji">🫳</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 17 -->
+<div class="branch left">
+<div class="card notyet">
+<h3>17. sleep call</h3>
+<div class="emoji">🫳</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 18 -->
+<div class="branch right">
+<div class="card notyet">
+<h3>18. sleep call tapi vc</h3>
+<div class="emoji">🫳</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 19 -->
+<div class="branch left">
+<div class="card notyet">
+<h3>19. tau sifat asli dia</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 20 -->
+<div class="branch right">
+<div class="card notyet">
+<h3>20. bisa bikin dia ketawa</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 21 -->
+<div class="branch left">
+<div class="card notyet">
+<h3>21. jadi tempat semua cerita dia</h3>
+<div class="emoji">🌱</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 22 -->
+<div class="branch right">
+<div class="card notyet">
+<h3>22. bikin dia nyaman</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 23 -->
+<div class="branch left">
+<div class="card notyet">
+<h3>23. hafal kebiasaan dia</h3>
+<div class="emoji">🌱</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 24 -->
+<div class="branch right">
+<div class="card notyet">
+<h3>24. bisa nenangin dia pas sedih</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 25 -->
+<div class="branch left">
+<div class="card notyet">
+<h3>25. dibolehin liat sisi jelek dia</h3>
+<div class="emoji">🌱</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 26 -->
+<div class="branch right">
+<div class="card notyet">
+<h3>26. dia ngerasa aman sama aku</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 27 -->
+<div class="branch left">
+<div class="card notyet">
+<h3>27. dia percaya aku gak bakal ninggalin</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 28 -->
+<div class="branch right">
+<div class="card half">
+<h3>28. dia bikin effort buat aku</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">belum sepenuhnya</div>
+</div>
+</div>
+
+<!-- 29 -->
+<div class="branch left">
+<div class="card notyet">
+<h3>29. dia ngirim pap tanpa diminta</h3>
+<div class="emoji">🫳</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 30 -->
+<div class="branch right">
+<div class="card half">
+<h3>30. dia mulai manja ke aku</h3>
+<div class="emoji">🌱</div>
+<div class="status">belum sepenuhnya</div>
+</div>
+</div>
+
+<!-- 31 -->
+<div class="branch left">
+<div class="card half">
+<h3>31. dia ngabarin tanpa kamu minta</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">belum sepenuhnya</div>
+</div>
+</div>
+
+<!-- 32 -->
+<div class="branch right">
+<div class="card notyet">
+<h3>32. bisa bikin dia tidur nyenyak</h3>
+<div class="emoji">🌱</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 33 -->
+<div class="branch left">
+<div class="card done">
+<h3>33. tau suara nangis dia</h3>
+<div class="emoji">🫳</div>
+<div class="status">udah</div>
+</div>
+</div>
+
+<!-- 34 -->
+<div class="branch right">
+<div class="card notyet">
+<h3>34. call kalo dia nangis</h3>
+<div class="emoji">🌱</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 35 -->
+<div class="branch left">
+<div class="card notyet">
+<h3>35. dia nyari aku pas badmood</h3>
+<div class="emoji">🐦‍🔥</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+<!-- 36 -->
+<div class="branch right">
+<div class="card notyet">
+<h3>36. ketemuan di real life</h3>
+<div class="emoji">📌</div>
+<div class="status">belum</div>
+</div>
+</div>
+
+</div>
+
+<!-- legend -->
+
+<div class="legend">
+
+<h2>✨ arti emoji</h2>
+
+<p>🐦‍🔥 = wajib</p>
+<p>🫳 = gak maksa</p>
+<p>🌱 = pelan pelan aja</p>
+<p>📌 = inti progres</p>
+
+<br>
+
+<p>✅️ = udah</p>
+<p>✔️ = belum sepenuhnya</p>
+<p>❓️ = belum</p>
+
+</div>
+
+<div class="footer">
+made with love 💖
+</div>
+
+</body>
+</html>
